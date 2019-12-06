@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Odin project</title>
+  </head>
+  
+  
+  <style>
+			body {
+				margin: 100px 500px;
+			
+			
+			}
+	</style>
+
+  <body>
+  <p>The ODIN project constructor exercise</p>
+  <p>	the goal of this exercise is to make an object constructor which will name the title, author, pages, and if the person has read the book or not through an if/else statement </p>
+
+  </body>
+    
+    
+
+    <script>
+				
+					
+					function Books(title, author, pages, read) {
+					
+					
+					this.title = title;
+					this.author = author;
+					this.pages = pages;
+					this.read = read;
+					this.info = function() {
+						
+						var bookString = (this.title + ' by ' + this.author+ ', ' + this.pages + ' pages, ');
+						
+						
+						var legible;
+						
+						if (this.read === 'yes') {
+							legible = 'yes I have read it';
+						} else { 
+							legible = 'no I have not read it';
+						}
+					
+						
+
+					return (bookString + legible);
+					}; //end of this.info function
+					} //end of constructor
+						
+				
+					
+					
+					
+					
+					const Ailish = new Books('cat in the hat', 'dr. seuss', 23, 'no'); 
+					
+		  const Matt = new Books('the atlantic', 'molly', 355, 'yes');
+		
+					
+				const Nicole = new Books('eat, pray, love', 'susan flea', 330, 'maybe');
+					
+					
+					
+	</script>
+</html>
+					
+					
