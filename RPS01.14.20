@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  
+  <script src="https://kit.fontawesome.com/6bf8533ada.js"></script>
+  
+  
+  <style>
+			body {
+			  background-image: linear-gradient(to bottom right, lightblue, darkblue);
+				margin:100px 400px;
+		
+			}
+			
+			
+			
+			
+			.results {
+				width: 500px;
+				color: red;
+				
+			}
+			
+			.play {
+				margin: 50px;
+			}
+			
+			.wrapper {
+				height:500px;
+				width: 300px;
+				background: white;
+				padding: 20px;
+			}
+			
+			#top {
+				color:whitesmoke;
+			}
+			
+			.icons {
+				display: flex;
+				flex-direction: row;
+				justify-content:center;
+				align-items:center;
+				align-content:space-between;
+				
+			}
+			
+			
+	
+			
+	</style>
+	
+			
+			
+  <body>
+  <!---- to do list
+			/continue work on the flexbox to make the space between the icons equal 
+			/center the whole page
+			make page look visually appealing
+			/add buttons to the form for the user to add functionality
+			save outcomes on another form 
+			allow user to select how many rounds of the game to play 
+			
+			---->
+  <div class ="icons">
+			<i class="far fa-gem fa-3x"></i><i class="fas fa-scroll fa-3x"></i></div>
+			<div id ="top"><h1>Rock Paper Scissors Games</h1></div>
+  <div class ="wrapper">
+  <h3>Computer</h3>
+  <div class = "computer"> </div>
+  <h3>User</h3>
+  <div class = "user"> </div>
+  <h3>Result</h3>
+  <div class = "result"></div>
+  <button class = "play">Play</button>
+			<p>		Paper beats Rock </p>
+		<p>	Rock beats Scissors </p>
+		<p>	Scissors beats Paper</p>
+			</div> 
+  </body>
+    
+  <script>
+			//get random number 
+					function ComputerPlay(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+						
+}
+			
+		
+		
+			//assign variable with random function
+			
+			document.querySelector('.play').addEventListener('click', function(){
+			//assign variable with random function
+			var computerOutput =	ComputerPlay(3);
+			var userOutput = ComputerPlay(3);
+		
+			
+			
+			// if else statement to output rock paper or scissors
+			if (computerOutput === 0) {
+				document.querySelector('.computer').textContent = "Rock!";
+			} else if (computerOutput === 1) {
+				document.querySelector('.computer').textContent = "Scissors!";
+			} else  {
+				document.querySelector('.computer').textContent = "Paper!";
+			}
+			
+				if (userOutput === 0) {
+				document.querySelector('.user').textContent = "Rock!";
+			} else if (userOutput === 1) {
+				document.querySelector('.user').textContent = "Scissors!";
+			} else  {
+				document.querySelector('.user').textContent = "Paper!";
+			}
+			
+	
+			
+			
+			if (userOutput === 0 && computerOutput === 1 || 
+							userOutput === 2 && computerOutput === 0 ||
+						 userOutput === 1 && computerOutput === 2) {
+				document.querySelector('.result').textContent = "You have beat the computer";
+			} else if (userOutput === computerOutput) {
+				document.querySelector('.result').textContent = "You have tied the computer";
+			} else {
+				document.querySelector('.result').textContent = "You have lost to the computer";
+			}
+				
+			});
+			
+			/* game rules
+			paper beats rock
+			rock beats scissors 
+			scissors beats paper
+			
+	rock = 0 
+			scissors = 1
+			paper = 2
+			
+			
+			*/
+			
+					
+	</script>
+</html>
+					
+					
