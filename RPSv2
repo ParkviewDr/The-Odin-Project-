@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  
+  <script src="https://kit.fontawesome.com/6bf8533ada.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+  
+  
+  <style>
+			body {
+			  background-image: linear-gradient(to bottom right, lightblue, darkblue);
+				font-family: 'EB Garamond', serif;
+			
+		
+			}
+			
+			.container {
+				display:flex;
+				flex-direction:column;
+				  align-items: center;
+  justify-content: center;
+			}
+			
+		/*	.results {
+				width: 500px;
+				color: red;
+				
+			} */
+			
+			.play {
+				margin: 20px;
+			}
+			
+			.container .wrapper {
+				height:590px;
+				width:300px;
+				background: white;
+				padding: 20px 0 0 20px;
+				text-align:center;
+				font-size:16px;
+				
+			}
+			
+			#top {
+				color:whitesmoke;
+
+			}
+			
+			.icons {
+				padding:30px 0 0 0;
+			}
+			
+			.winner {
+				background-color: lightgreen;
+			}
+			
+			.loser {
+				background-color: darkred;
+			}
+			
+			
+			.computer {
+				font-size: 20px;
+				text-decoration: underline;
+			}
+			.user {
+				font-size: 20px;
+				text-decoration: underline;
+			}
+			
+		#compScore, #userScore {
+				padding: 10px 0px;
+			}
+			
+			.result {
+				padding:10px;
+				font-size: 20px;
+				margin: 10px 20px 10px 0px;
+
+			}
+			.outcomeUser{
+				font-size:20px;
+			}
+			
+			.outcomeCom {
+				font-size:20px;
+			}
+	
+			
+	</style>
+	
+			
+			
+  <body>
+  <!---- to do list
+			/continue work on the flexbox to make the space between the icons equal 
+			/center the whole page
+			make page look visually appealing
+			/add buttons to the form for the user to add functionality
+			save outcomes on another form 
+			allow user to select how many rounds of the game to play 
+			
+			---->
+			<div class ="container">
+  <div class ="icons">
+			<i class="far fa-gem fa-3x"></i>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="fas fa-scroll fa-3x"></i>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="fas fa-cut fa-3x"></i>
+			 </div>
+			<div id ="top"><h1>Rock Paper Scissors Game</h1></div>
+  <div class ="wrapper">
+  <p>Please enter "rock" "paper" or "scissors" below</p>
+  	<p>		Paper beats Rock.	Rock beats Scissors. 	Scissors beats Paper.</p>
+  <input type="text" id = "user">
+  <div class ="error"></div>
+    <button class = "play">Play</button>&nbsp;&nbsp;&nbsp;<button class = "reset">Reset</button>
+			<h3>Result</h3>
+  <div class = "outcomeCom"></div>
+			<div class = "outcomeUser"></div>
+			<div class = "result"></div>
+			<div class = "computer">Computer score</div>
+				<div id = "compScore">0</div>
+			<div class = "user">User score</div>
+			<div id = "userScore">0</div>
+			<a href ="www.mmitchelldevelopment.com">Design by Matt Mitchell Development</a>
+		
+			</div> 
+			</div>
+  </body>
+    
+  <script>
+				let	ComScore = 0;
+				let UserScore = 0;
+			//get random number 
+					function ComputerPlay(max) {
+  			return Math.floor(Math.random() * Math.floor(max));
+						
+}
+
+			
+			document.querySelector('.play').addEventListener('click', function(){
+		
+			let paperInput, rockInput, scissorsInput;
+				
+			var computerOutput =	ComputerPlay(3);
+				
+				// grab user input, create a variable 
+			let userOutput = document.getElementById('user').value; 
+				document.querySelector('.outcomeUser').textContent = 'User result: ' + userOutput;
+				
+
+			// if else statement to output rock paper or scissors
+			if (computerOutput === 0) {
+				
+				document.querySelector('.outcomeCom').textContent = 'Computer Result: rock';
+			} 		else if (computerOutput === 1) {
+							document.querySelector('.outcomeCom').textContent = 'Computer Result: scissors';
+			} 					else  {
+										document.querySelector('.outcomeCom').textContent = 'Computer Result: paper';
+			}
+			
+			if (userOutput === 'rock' && computerOutput === 1 || 
+							userOutput === 'paper' && computerOutput === 0 ||
+						 userOutput === 'scissors' && computerOutput === 2) {
+			
+			
+								document.querySelector('.result').textContent = "You beat the computer";
+								UserScore++;
+								document.getElementById('userScore').textContent = UserScore;
+								document.querySelector('.result').style.backgroundColor = "#90ee90";
+									
+				
+					} else if (userOutput === 'rock' && computerOutput === 0 ||
+														userOutput === 'scissors' && computerOutput === 1 ||
+														userOutput === 'paper' && computerOutput === 2) {
+														document.querySelector('.result').textContent = "You tied the computer";
+														document.querySelector('.result').style.backgroundColor = "#c0c0c0";
+						
+										} else {
+															document.querySelector('.result').textContent = "You lost to the computer";
+															ComScore++;
+															document.getElementById('compScore').textContent = ComScore;
+															document.querySelector('.result').style.backgroundColor = "#fa8072";
+			}
+				
+			});
+			
+			// reset button to all initial values 
+			document.querySelector('.reset').addEventListener('click', function(){
+						UserScore = 0;
+						ComScore = 0;
+						document.getElementById('user').textContent = '';
+						document.querySelector('.outcomeUser').textContent = '';
+						document.querySelector('.outcomeCom').textContent = '';
+						document.getElementById('userScore').textContent = '0';
+						document.getElementById('compScore').textContent = '0';
+						document.querySelector('.result').textContent = '';
+						document.querySelector('.result').style.backgroundColor = '';
+						comScore === 0;
+						userScore === 0;
+			
+			
+			});
+			
+	</script>
+</html>
+					
+					
